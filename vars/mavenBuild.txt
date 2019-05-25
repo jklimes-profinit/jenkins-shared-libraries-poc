@@ -1,0 +1,7 @@
+Executes Maven build (*clean install*) without tests.
+
+Test markdown:
+
+- one
+- two
+- three **bold**
