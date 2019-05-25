@@ -1,4 +1,4 @@
-def call(scmUrl, additionalRecipients ) {
+def call(scmUrl, additionalRecipients, guiTests=false ) {
       pipeline {
             agent any
             tools {
@@ -32,6 +32,13 @@ def call(scmUrl, additionalRecipients ) {
                   stage('Test') {
                         steps {
                               runUnitTests()
+                        }
+                  }
+                  if (guiTests) {
+                        stage('GUI test') {
+                              steps {
+                                    runGuiTests()
+                              }
                         }
                   }
             }
