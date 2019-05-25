@@ -1,4 +1,4 @@
-def call(scmUrl, additionalRecipients, guiTests=false ) {
+def call(scmUrl, additionalRecipients ) {
       pipeline {
             agent any
             tools {
@@ -10,6 +10,9 @@ def call(scmUrl, additionalRecipients, guiTests=false ) {
             }
             triggers {
                   pollSCM 'H/2 * * * *'
+            }
+            parameters {
+                  booleanParam name: 'SKIP_TESTS', defaultValue: false, description: 'Whether to skip tests'
             }
             stages {
                   stage ("Configure"){
@@ -32,13 +35,6 @@ def call(scmUrl, additionalRecipients, guiTests=false ) {
                   stage('Test') {
                         steps {
                               runUnitTests()
-                        }
-                  }
-                  if (guiTests) {
-                        stage('GUI test') {
-                              steps {
-                                    runGuiTests()
-                              }
                         }
                   }
             }
