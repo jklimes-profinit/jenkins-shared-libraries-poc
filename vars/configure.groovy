@@ -1,4 +1,4 @@
-def call() {
-   def context = "Test context"
-   contextHolder.yourField = context
+def call(args) {
+   def context = args.ctx
+   context.value = "Test context"
 }
