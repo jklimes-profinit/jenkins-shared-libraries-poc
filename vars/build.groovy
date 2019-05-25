@@ -1,5 +1,4 @@
 def call(args) {
-   def context = args.ctx
+   echo "Context: ${contextHolder.yourField}"
    sh "mvn clean install -DskipTests"
-   echo "Context: ${context}"
 }

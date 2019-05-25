@@ -1,4 +1,4 @@
 def call() {
    def context = "Test context"
-   return context
+   contextHolder.yourField = context
 }
