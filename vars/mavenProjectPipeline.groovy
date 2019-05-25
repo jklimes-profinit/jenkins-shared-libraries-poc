@@ -1,4 +1,4 @@
-def call(scmUrl) {
+def call(scmUrl, additionalRecipients ) {
       pipeline {
             agent any
             tools {
@@ -39,7 +39,7 @@ def call(scmUrl) {
                   always {
                         script {
                               fixBuildResult
-                              sendEmailNotification(additionalRecipients: 'jonas.klimes@profinit.eu')
+                              sendEmailNotification(additionalRecipients: additionalRecipients)
                         }
                   }
 
