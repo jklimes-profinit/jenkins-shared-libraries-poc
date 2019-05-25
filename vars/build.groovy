@@ -1,5 +1,7 @@
+import mypackage.ContextHolder
+
 def call(args) {
-   def context = args.ctx
+   def context = ContextHolder.getContext()
    echo "Context: ${context.value}"
    sh "mvn clean install -DskipTests"
 }

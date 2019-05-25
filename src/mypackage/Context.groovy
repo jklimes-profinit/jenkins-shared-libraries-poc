@@ -1,5 +1,5 @@
 package mypackage;
 
 class Context {
-String value
+    String value
 }

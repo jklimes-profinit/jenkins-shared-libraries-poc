@@ -1,4 +1,4 @@
-import mypackage.Constants;
+import mypackage.Constants
 
 def call(args) {
     def relativeUrl = args.relativeUrl

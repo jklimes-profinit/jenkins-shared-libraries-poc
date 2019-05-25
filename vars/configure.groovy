@@ -1,4 +1,7 @@
+import mypackage.ContextHolder
+
 def call(args) {
-   def context = args.ctx
-   context.value = "Test context"
+      ContextHolder.initializeContext()
+      def context = ContextHolder.getContext()
+      context.value = "Test context"
 }
